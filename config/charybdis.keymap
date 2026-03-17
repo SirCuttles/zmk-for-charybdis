@@ -7,13 +7,11 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1000
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 12
 
-&lt {
+/ {
     tapping-term-ms = <200>;
     flavor = "balanced";
     quick-tap-ms = <150>;
-};
 
-/ {
     behaviors {
         td_lalt_sym: tap_dance_lalt_sym {
             compatible = "zmk,behavior-tap-dance";
@@ -36,9 +34,7 @@
             bindings = <&to 1>, <&to 5>;
         };
     };
-};
 
-/ {
     keymap {
         compatible = "zmk,keymap";
 
