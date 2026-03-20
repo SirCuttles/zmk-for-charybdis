@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# West / Zephyr workspace state
+/.west/
+/build/
+/zmk/
+/zephyr/
+/modules/
+
+# Nested git repos
+**/.git/
+
+# Local editor state
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local backup files
+*.bkp
+*.bkp*
