@@ -4,17 +4,35 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include <nordic/nrf52840_qiaa.dtsi>
 #include "charybdis.dtsi"
 
-&kscan0 {
-	col-gpios
-		= <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-		, <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-		, <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-		, <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-		, <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-		, <&gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-		;
-};
-//RGB bus
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK,  0, 22)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 17)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 20)>;
+        };
+    };
 
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK,  0, 22)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 17)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 20)>;
+            low-power-enable;
+        };
+    };
+};
+
+&kscan0 {
+    col-gpios
+        = <&gpio0  2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0  9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio1  0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio1  4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        ;
+};
