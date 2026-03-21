@@ -10,6 +10,7 @@
 
 # Nested git repos
 **/.git/
+zmk-pmw3610-driver/
 
 # Local editor state
 .idea/
