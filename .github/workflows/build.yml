@@ -91,7 +91,7 @@ jobs:
         run: |
           west build -s zmk/app -d "${{ env.build_dir }}" -b "${{ matrix.board }}" ${{ env.extra_west_args }} -- \
             -DZephyr_DIR="${{ env.base_dir }}/zephyr/share/zephyr-package/cmake" \
-            -DZMK_CONFIG="${{ env.base_dir }}/config/charybdis" \
+            -DZMK_CONFIG="${{ env.base_dir }}/config" \
             ${{ env.extra_cmake_args }} \
             ${{ matrix.cmake-args }}
 
