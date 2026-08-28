@@ -45,7 +45,7 @@
 
     spi-max-frequency = <500000>;
 
-    irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW)>;
 
     cpi = <1200>;
 
